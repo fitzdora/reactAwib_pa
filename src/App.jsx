@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Gender from "./components/gender";
+import "./App.css";
+import male from "./assets/male.png";
+import female from "./assets/female.png";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  //this is the area to select a gender
 
-export default App
+  const select = [
+    {
+      name: "Male",
+      choice: "Choose if assigned Male at birth",
+    },
+    {
+      name: "Female",
+      choice: "Choose if assigned female at birth",
+    }
+  ];
+const name = "What is your birth assignment?";
+
+return (
+  <>
+  <header className="App-header">
+  </header>
+  <div className="gender">
+  <Gender title={name} select={select} />
+  </div>
+  </>
+);
+};
+
+
+
+export default App;

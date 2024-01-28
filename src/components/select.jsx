@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
 const Select = (props) => {
     return (
         <tr>
-            <td>{props.description.typeMale}</td>
-            <td>{props.description.typeFemale}</td>
+            <td>{props.description.name}</td>
+            <td>{props.description.choice}</td>
         </tr>
     )
 }
