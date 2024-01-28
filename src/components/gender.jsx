@@ -9,7 +9,7 @@ const Gender = (props) => {
     ))
     return (
         <>
-        <h2>{`${props.title} Gender assignment`}</h2>
+        <h2>{`${props.title}`}</h2>
         <table className="table table-bordered">
             <thead>
                 <tr>
