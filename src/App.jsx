@@ -1,8 +1,9 @@
 import React from "react";
 import Gender from "./components/gender";
-import "./App.css";
+import { FaFemale } from "react-icons/fa";
+import { FaMale } from "react-icons/fa";
 import male from "./assets/male.png";
-import female from "./assets/female.png";
+import "./App.css";
 
 const App = () => {
 
@@ -18,14 +19,19 @@ const App = () => {
       choice: "Choose if assigned female at birth",
     }
   ];
-const name = "What is your birth assignment?";
+const name = "What was your gender assignment at birth?";
 
 return (
   <>
   <header className="App-header">
+  <FaFemale />
+  <FaMale />
   </header>
   <div className="gender">
   <Gender title={name} select={select} />
+  </div>
+  <div>
+    <img className="center" src={male} alt="male" />
   </div>
   </>
 );
