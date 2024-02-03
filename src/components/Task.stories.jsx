@@ -10,7 +10,7 @@ export const Default = {
   args: {
     task: {
       id: '1',
-      title: 'Build date Picker',
+      title: 'Test Task',
       state: 'TASK_INBOX',
     },
   },
