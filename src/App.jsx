@@ -1,9 +1,9 @@
-import React from "react";
-import Gender from "./components/gender";
-import { FaFemale } from "react-icons/fa";
-import { FaMale } from "react-icons/fa";
-import male from "./assets/male.png";
-import "./App.css";
+import React from 'react';
+import Gender from './components/gender';
+import { FaFemale } from 'react-icons/fa';
+import { FaMale } from 'react-icons/fa';
+import male from './assets/male.png';
+import './App.css';
 
 const App = () => {
 
@@ -36,7 +36,5 @@ return (
   </>
 );
 };
-
-
 
 export default App;
