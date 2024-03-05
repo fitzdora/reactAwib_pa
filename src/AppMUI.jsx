@@ -1,6 +1,5 @@
 import React from "react";
-import GenderSelection from "./components/genderSelectionMUI.jsx";
-import UserRating from "./components/ratingMUI.jsx";
+import GalleryOne from "./components/canvasMUI";
 
 
 const App = () => {
@@ -20,7 +19,7 @@ const App = () => {
             <body>
             {/*Main Page Content */}
             <div>
-              <UserRating />
+              <GalleryOne />
             </div>
             </body>
           </main>
