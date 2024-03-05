@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 function CanvasOne() {
     //adding use effect as canvas needs time to load
