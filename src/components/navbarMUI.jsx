@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AndroidIcon from '@mui/icons-material/Android';
+import BalanceIcon from '@mui/icons-material/Balance';
 
 const pages = ['Masterpiece', 'Colour', 'Shape', 'Feedback'];
 
@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
         <AppBar position="static" >
             <Container maxWidth="x1">
                 <Toolbar disableGutters>
-                    <AndroidIcon sx={{ display: {xs:'none', md:'flex'}, mr: 1}} />
+                    <BalanceIcon sx={{ display: {xs:'none', md:'flex'}, mr: 1}} />
                     <Typography
                     variant='h6'
                     noWrap
@@ -83,7 +83,7 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box> 
-                    <AndroidIcon sx={{ display: {xs:'flex', md:'none'}, mr: 1}} />
+                    <BalanceIcon sx={{ display: {xs:'flex', md:'none'}, mr: 1}} />
                     <Typography
                     variant='h5'
                     noWrap
