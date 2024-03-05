@@ -1,1 +1,0 @@
-#All Weight is Beautiful - Interactive Art Generator using a digital weighing Scale A.P.I.
