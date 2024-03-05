@@ -1,25 +1,18 @@
 import React from "react";
-import GalleryOne from "./components/canvasMUI";
-
+import Main from "./components/mainMUI.jsx";
+import Navbar from "./components/navbarMUI.jsx";
 
 const App = () => {
 
     return (
         <div>
           {/*Navigation Bar */}
-          <nav>
-            <ul>
-              <li>Masterpiece</li>
-              <li>Colours</li>
-              <li>Shapes</li>
-              <li>Feeback</li>
-            </ul>
-          </nav>
+          <Navbar />
           <main>
             <body>
             {/*Main Page Content */}
             <div>
-              <GalleryOne />
+              <Main />
             </div>
             </body>
           </main>
