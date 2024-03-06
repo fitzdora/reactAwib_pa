@@ -1,9 +1,9 @@
-import GalleryOne from "./canvasMUI.jsx";
+import { TestCanvas } from "./testCanvasMui";
 
-export default function Main(){
+export default function Main (){
 return (
 <main>
-<GalleryOne />
+<TestCanvas />
 </main>
 );
 }

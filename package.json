@@ -14,13 +14,15 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "11.6",
+    "@fontsource/roboto": "^5.0.12",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "bootstrap": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.12",
-    "react-icons": "^5.0.1"
+    "react-icons": "^5.0.1",
+    "react-p5": "^1.4.1"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^7.6.12",
