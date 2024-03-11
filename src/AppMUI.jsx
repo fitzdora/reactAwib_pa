@@ -1,9 +1,12 @@
 import Main from "./components/mainMUI.jsx";
 import Navbar from "./components/navbarMUI.jsx";
 
+
+
 const App = () => {
 
-    return (
+    
+  return (
         <div>
           {/*Navigation Bar */}
           <Navbar />     

@@ -1,9 +1,10 @@
-import { TestCanvas } from "./testCanvasMui";
+import TestCanvasAPI from "./testCanvasMUIAPI";
 
-export default function Main (){
+export default function Main() {
+
 return (
 <main>
-<TestCanvas />
+<TestCanvasAPI />
 </main>
 );
 }
