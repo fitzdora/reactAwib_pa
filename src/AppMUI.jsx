@@ -5,7 +5,6 @@ import Navbar from "./components/navbarMUI.jsx";
 
 const App = () => {
 
-    
   return (
         <div>
           {/*Navigation Bar */}

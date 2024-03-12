@@ -1,9 +1,10 @@
 import React, { useEffect, useState} from 'react';
 import { fetchAPI } from '../api/fetchAPI';
+import PropTypes from 'prop-types';
 
 const DataFetcher = ({ onDataFetched }) => {
 
-    //const [data, setData] = useState(null);
+   //const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     
@@ -30,6 +31,11 @@ const DataFetcher = ({ onDataFetched }) => {
         return<div>Error: {error.message} </div>;
     }
     return null;
+
+};
+
+DataFetcher.propTypes = {
+    onDataFetched: PropTypes.object.isRequired, // Assuming the data is an object
 };
 
 export default DataFetcher;
