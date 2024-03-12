@@ -1,7 +1,6 @@
-//import Main from "./components/mainMUI.jsx";
-import Navbar from "./components/navbarMUI.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import Navbar from "./components/navbarMUI.jsx";
+import Feedback from "./components/feedback.jsx";
 
 
 const App = () => {
