@@ -8,7 +8,7 @@ const TestCanvasAPI = ({ data }) =>  {
     console.log('Data Received Initially:', dataReceived);
     
     const setup = (p5, parent) => {
-        p5.createCanvas(400, 400).parent(parent);
+        p5.createCanvas(600, 600).parent(parent);
         p5.background(0);
         if (dataReceived) {
         gotData(p5, dataReceived);
