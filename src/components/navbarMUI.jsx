@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import BalanceIcon from '@mui/icons-material/Balance';
 
-const pages = ['Masterpiece', 'Colour', 'Shape', 'Feedback'];
+const pages = ['Creation', 'Colour', 'Shape', 'Feedback'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
