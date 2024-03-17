@@ -1,13 +1,12 @@
-import Main from "./mainMUI";
-import DataFetcher from "./dataFetcher";
+import { ShapeCanvas } from "./shapeCanvasMUI";
 
-export default function Shape(onDataFetched) {
+export default function Shape() {
 
     return (
 
         <div className='container'>
              <h1>A Canvas Should load here</h1>
-            <Main />
+            <ShapeCanvas />
         </div>
     );
 }

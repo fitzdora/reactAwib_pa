@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Sketch from "react-p5";
 
-export function ColourCanvas() {
+export function ShapeCanvas() {
 
     let symmetry;
-    let xoff = 0;
+    //let xoff = 0;
     let maxIterations = 120;
   
 
@@ -35,15 +35,15 @@ export function ColourCanvas() {
         let angle = 360/symmetry;
         let sw = p5.random(0,3);
         
-        let hu = p5.noise(xoff) * 255;
-        xoff += 0.2;
+        //let hu = p5.noise(xoff) * 255;
+        //xoff += 0.2;
        
         
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-        p5.stroke(hu, 255, 255, 100);
+        //p5.stroke(hu, 255, 255, 100);
         p5.fill(c);
-        //p5.noStroke();
-        p5.filter(p5.GRAY);
+        p5.noStroke();
+        //p5.filter(p5.GRAY);
         
       for(let i = 0; i < symmetry; i++) {
         
@@ -59,10 +59,6 @@ export function ColourCanvas() {
         
      }
      
-      
+     return <Sketch setup={setup} draw={draw} />;
 
-   
-
-    return <Sketch setup={setup} draw={draw} />;
-
-}
+    }
