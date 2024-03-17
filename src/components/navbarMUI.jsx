@@ -12,11 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import BalanceIcon from '@mui/icons-material/Balance';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Creation', 'Colour', 'Shape', 'Feedback'];
 
+
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -25,6 +28,11 @@ function ResponsiveAppBar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     }; 
+
+    const handleMenuSelect = (page) => {
+        navigate(page);
+        handleCloseNavMenu();
+    };
 
     return (
         <AppBar position="static" >
@@ -77,7 +85,7 @@ function ResponsiveAppBar() {
                             display: {xs:'block', md:'none'},
                         }} >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page} onClick={() => handleMenuSelect(page)}> 
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
@@ -105,7 +113,7 @@ function ResponsiveAppBar() {
                     {pages.map((page) => (
                         <Button
                         key={page}
-                        onClick={handleCloseNavMenu}
+                        onClick={() => handleMenuSelect(page)}
                         sx={{ my: 2, color: 'white', display: 'block '}}
                         >
                             {page}

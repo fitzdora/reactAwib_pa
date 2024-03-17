@@ -1,4 +1,4 @@
-export default function Color() {
+export default function Colour() {
     return (
 
         <section>
