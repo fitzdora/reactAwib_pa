@@ -1,4 +1,4 @@
-import { TestCanvasAPI } from "./testCanvasMUIAPI";
+import TestCanvasAPI from "./testCanvasMUIAPI.jsx";
 
 export default {
     title: 'TestCanvasAPI',

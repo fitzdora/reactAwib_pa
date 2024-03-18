@@ -1,4 +1,4 @@
-import { TestCanvas } from "./testCanvasMui";
+import TestCanvas from "./testCanvasMUI.jsx";
 
 export default {
     title: 'TestCanvas',

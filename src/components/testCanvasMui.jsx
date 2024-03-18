@@ -10,7 +10,6 @@ export function TestCanvas() {
 
     const setup = (p5, parent) => {
         p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(parent);
-        //p5.windowResized(p5.windowWidth, p5.windowHeight);
         p5.background(0); 
         
     }
@@ -20,11 +19,11 @@ export function TestCanvas() {
         x++;
     }
 
-    /* const windowResized = (p5) => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
-    }
- */
-
+   
     return <Sketch setup={setup} draw={draw} />
 
 }
+
+export default TestCanvas;
+
+
