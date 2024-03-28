@@ -1,9 +1,9 @@
-### __Name:__ ###
-## [Isadora Fitzgerald] ##
-### __Student Id:__###
-## [W20099887] ##
-### __Video URL:__ ###
-# [https:] # 
+### Name: ###
+## Isadora Fitzgerald ##
+### Student Id: ###
+## W20099887 ##
+### Video URL: ###
+# [Video Presentation](https:) # 
 ### Commercial Title: ### 
 # All Weight is Beautiful #
 ### Academic Title: ###
@@ -23,8 +23,7 @@
 + Kaleidoscope type images
 
 ### Image: ###
-
+![The below Image shows an overview of the Kaleidoscope type imagery envisioned.](src/assets/image1.png)
 ### Project managment: ###
 ### Please visit [Trello](https://trello.com/invite/b/6aBvTRjd/ATTId0ebfddabef951228f6f0146e951686f2CB6CA20/final-year-project)  ###
-### Video Presentation: ###
 ### Final Report: ###
