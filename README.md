@@ -1,3 +1,9 @@
+### __Name:__ ###
+## [Isadora Fitzgerald] ##
+### __Student Id:__###
+## [W20099887] ##
+### __Video URL:__ ###
+# [https:] # 
 ### Commercial Title: ### 
 # All Weight is Beautiful #
 ### Academic Title: ###
@@ -5,7 +11,17 @@
 ### Abstract: ###
 ## “All weight is beautiful” illustrates the fusion of Art and Computer Science in a quirky and unique Art Gallery web app prototype of a larger interactive public art installation. An anonymous user simply steps on a weighing scale allowing the scales API to gather a dataset from the users' interaction with the scales. Using this extracted dataset, P5.js is integrated into a React component of the web app gallery and outputs a visualisation via random numbers and patterns emulating Kaleidoscope type imagery - a multi-faceted, symmetrical, colourful image based on a shape. ##
 ### Keywords: ###
-### __Weighing scale, Scales API, Dataset, .json, P5.js, React components, Shapes, Web app gallery, Random numbers and patterns, Kaleidoscope type images__ ###
++ Weighing scale 
++ Scales API
++ Dataset
++ .json
++ P5.js
++ React components
++ Shapes
++ Web app gallery
++ Random numbers and patterns
++ Kaleidoscope type images
+
 ### Image: ###
 
 ### Project managment: ###
