@@ -23,6 +23,7 @@
 + Kaleidoscope type images
 
 ### Image: ###
+### _The below Image shows an overview of the Kaleidoscope type imagery envisioned._ ###
 ![The below Image shows an overview of the Kaleidoscope type imagery envisioned.](src/assets/image1.png)
 ### Project managment: ###
 ### Please visit [Trello](https://trello.com/invite/b/6aBvTRjd/ATTId0ebfddabef951228f6f0146e951686f2CB6CA20/final-year-project)  ###
