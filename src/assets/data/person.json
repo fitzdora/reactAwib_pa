@@ -1,0 +1,95 @@
+{
+    "person": [
+        {
+            "datatype": "Weight",
+            "unit": "Kg",
+            "fitDaysApp ": "77.3",
+            "withingsApp": "77.4",
+            "difference": "0.1"
+        },
+        {
+            "datatype": "Bodyfat",
+            "unit": "%",
+            "fitDaysApp ": "43.1",
+            "withingsApp": "36",
+            "difference": "-7.1"
+        },
+        {
+            "datatype": "BMI",
+            "unit": "Int",
+            "fitDaysApp ": "30.2",
+            "withingsApp": "29.5",
+            "difference": "-0.7"
+        },
+        {
+            "datatype": "Body Water",
+            "unit": "%",
+            "fitDaysApp ": "42.5",
+            "withingsApp": "42.4",
+            "difference": "-0.1"
+        },
+        {
+            "datatype": "Skeletal Muscle",
+            "unit": "%",
+            "fitDaysApp ": "39.1",
+            "withingsApp": "N/A",
+            "difference": "N/A"
+        },
+        {
+            "datatype": "BMR",
+            "unit": "Kcal",
+            "fitDaysApp ": "1375",
+            "withingsApp": "1473",
+            "difference": "98"
+        },
+        {
+            "datatype": "Fat-Free Body Weight",
+            "unit": "Kg",
+            "fitDaysApp ": "44",
+            "withingsApp": "N/A",
+            "difference": "N/A"
+        },
+        {
+            "datatype": "Subcutaneous fat",
+            "unit": "%",
+            "fitDaysApp ": "27.3",
+            "withingsApp": "N/A",
+            "difference": "N/A"
+        },
+        {
+            "datatype": "Visceral Fat",
+            "unit": "Int",
+            "fitDaysApp ": "9.8",
+            "withingsApp": "3.1",
+            "difference": "-6.7"
+        },
+        {
+            "datatype": "Muscle Mass",
+            "unit": "Kg",
+            "fitDaysApp ": "53.4",
+            "withingsApp": "60.7",
+            "difference": "7.3"
+        },
+        {
+            "datatype": "Bone Mass",
+            "unit": "Kg",
+            "fitDaysApp ": "2.7",
+            "withingsApp": "3.2",
+            "difference": "0.5"
+        },
+        {
+            "datatype": "Protein",
+            "unit": "%",
+            "fitDaysApp ": "11",
+            "withingsApp": "N/A",
+            "difference": "N/A"
+        },
+        {
+            "datatype": "Heart Rate",
+            "unit": "Bpm",
+            "fitDaysApp ": "N/A",
+            "withingsApp": "90",
+            "difference": "N/A"
+        }
+    ]
+}
