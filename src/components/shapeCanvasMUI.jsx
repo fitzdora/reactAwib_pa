@@ -3,10 +3,15 @@ import Sketch from "react-p5";
 
 export function ShapeCanvas() {
 
+    let data;
     let symmetry;
-    //let xoff = 0;
+    let xoff = 0;
     let maxIterations = 120;
-  
+    let maxThreshold = 1500; //set a limit 
+    
+    const preload = (p5) => {
+        data = p5.loadJSON('person.json');
+      }
 
     const setup = (p5, parent) => {
         p5.createCanvas(p5.displayWidth, p5.displayHeight).parent(parent);
@@ -20,15 +25,32 @@ export function ShapeCanvas() {
     }
 
     const draw = p5 => {
+
         p5.translate(p5.width/2, p5.height/2); // set x and y to middle
         let currentIteration = p5.min(p5.frameCount, maxIterations);
         
         //Draw Rectangle
-            for(let i = 0; i < currentIteration; i++) {
+           /*  for(let i = 0; i < currentIteration; i++) {
             drawRectangle(p5, i*2, i*2, i, i);
-            }
-    
-    }
+            } */
+
+        // Draw Ellipse/Circle
+            for(let i = 0; i < currentIteration; i++) {
+                for(let j= 0; j < data.person.length; j++) {
+                    //access Withings App data from the data file
+                let wApp = Number(data.person[j].withingsApp); 
+                drawEllipse(i*2, i*2, i, i);
+                console.log(data.person.length);
+                    //console.log(wApp);
+                    // check is wApp can set a stop condition
+                    if (wApp >= maxThreshold){
+                    break; //exit the inner loop
+                    }
+
+                    }   
+                }
+}    
+
 
 
     const drawRectangle = (p5, x, y, w, h) => {
@@ -56,6 +78,29 @@ export function ShapeCanvas() {
         p5.rect(x, y, w, h);
         p5.pop();
         }  
+
+//draw Ellipse
+        const drawEllipse = (x,y, w, h){
+            let angle = 360/symmetry;
+            let sw = random(0, 3);
+            
+            let hu = noise(xoff) * 255;
+            xoff += 0.01;
+            
+            let c = color(random(255), random(255), random(255));
+            stroke(hu, 255, 255, 100);
+            fill(c);
+            
+            for(let i = 0; i< symmetry; i++){
+              rotate(angle);
+              strokeWeight(sw);
+              ellipse(x, y, w, h);
+              
+              push();
+              scale(1, -1);
+              ellipse(x, y, w, h);
+              pop();
+            }
         
      }
      
