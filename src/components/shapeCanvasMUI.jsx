@@ -5,9 +5,9 @@ export function ShapeCanvas() {
 
     let data;
     let symmetry;
-    let xoff = 0;
+    //let xoff = 0;
     let maxIterations = 120;
-    let maxThreshold = 1500; //set a limit 
+    //let maxThreshold = 1500; //set a limit 
     
     const preload = (p5) => {
         data = p5.loadJSON('person.json');
@@ -20,7 +20,6 @@ export function ShapeCanvas() {
         p5.colorMode(p5.HSB, 255, 255, 100);
         symmetry = p5.random(6, 12);
         p5.frameRate(4);
-       
 
     }
 
@@ -39,28 +38,19 @@ export function ShapeCanvas() {
                 for(let j= 0; j < data.person.length; j++) {
                     //access Withings App data from the data file
                 let wApp = Number(data.person[j].withingsApp); 
-                drawEllipse(i*2, i*2, i, i);
-                console.log(data.person.length);
-                    //console.log(wApp);
-                    // check is wApp can set a stop condition
-                    if (wApp >= maxThreshold){
-                    break; //exit the inner loop
-                    }
-
+                drawEllipse(p5, i*2, i*2, i, i);
                     }   
                 }
-}    
+    }  
 
 
 
+    /* //Draw a Rectangle
     const drawRectangle = (p5, x, y, w, h) => {
         let angle = 360/symmetry;
         let sw = p5.random(0,3);
-        
         //let hu = p5.noise(xoff) * 255;
         //xoff += 0.2;
-       
-        
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
         //p5.stroke(hu, 255, 255, 100);
         p5.fill(c);
@@ -77,33 +67,35 @@ export function ShapeCanvas() {
         p5.scale(1, -1);
         p5.rect(x, y, w, h);
         p5.pop();
-        }  
+        }
+    }   */
 
-//draw Ellipse
-        const drawEllipse = (x,y, w, h){
+        //draw Ellipse
+        const drawEllipse = (p5, x,y, w, h) => {
             let angle = 360/symmetry;
-            let sw = random(0, 3);
+            let sw = p5.random(0, 3);
             
-            let hu = noise(xoff) * 255;
-            xoff += 0.01;
+            //let hu = noise(xoff) * 255;
+            //xoff += 0.01;
             
-            let c = color(random(255), random(255), random(255));
-            stroke(hu, 255, 255, 100);
-            fill(c);
+            let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
+            //p5.stroke(hu, 255, 255, 100);
+            p5.fill(c);
+            p5.noStroke();
             
             for(let i = 0; i< symmetry; i++){
-              rotate(angle);
-              strokeWeight(sw);
-              ellipse(x, y, w, h);
+              p5.rotate(angle);
+              p5.strokeWeight(sw);
+              p5.ellipse(x, y, w, h);
               
-              push();
-              scale(1, -1);
-              ellipse(x, y, w, h);
-              pop();
+              p5.push();
+              p5.scale(1, -1);
+              p5.ellipse(x, y, w, h);
+              p5.pop();
             }
         
      }
      
-     return <Sketch setup={setup} draw={draw} />;
+     return <Sketch preload={preload} setup={setup} draw={draw} />;
 
     }
