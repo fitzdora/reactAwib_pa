@@ -29,32 +29,11 @@
             "difference": "-0.1"
         },
         {
-            "datatype": "Skeletal Muscle",
-            "unit": "%",
-            "fitDaysApp ": "39.1",
-            "withingsApp": "N/A",
-            "difference": "N/A"
-        },
-        {
             "datatype": "BMR",
             "unit": "Kcal",
             "fitDaysApp ": "1375",
             "withingsApp": "1473",
             "difference": "98"
-        },
-        {
-            "datatype": "Fat-Free Body Weight",
-            "unit": "Kg",
-            "fitDaysApp ": "44",
-            "withingsApp": "N/A",
-            "difference": "N/A"
-        },
-        {
-            "datatype": "Subcutaneous fat",
-            "unit": "%",
-            "fitDaysApp ": "27.3",
-            "withingsApp": "N/A",
-            "difference": "N/A"
         },
         {
             "datatype": "Visceral Fat",
@@ -76,20 +55,6 @@
             "fitDaysApp ": "2.7",
             "withingsApp": "3.2",
             "difference": "0.5"
-        },
-        {
-            "datatype": "Protein",
-            "unit": "%",
-            "fitDaysApp ": "11",
-            "withingsApp": "N/A",
-            "difference": "N/A"
-        },
-        {
-            "datatype": "Heart Rate",
-            "unit": "Bpm",
-            "fitDaysApp ": "N/A",
-            "withingsApp": "90",
-            "difference": "N/A"
         }
     ]
 }

@@ -1,10 +1,11 @@
-  import fetchJsonp from "fetch-jsonp";
+  //import fetchJsonp from "fetch-jsonp";
   
   export const fetchAPI = async () => {
-    const apiURL = `http://api.open-notify.org/astros.json`;
-
+    //const apiURL = `http://api.open-notify.org/astros.json`;
+    const jsonData = './assets/data/person.json';
     try {
-      const response = await fetchJsonp(apiURL);
+      //const response = await fetchJsonp(apiURL);
+      const response = await fetch(jsonData);
       if (!response.ok) {
         throw new Error(response.statusText);
       }

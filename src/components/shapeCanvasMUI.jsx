@@ -1,29 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sketch from "react-p5";
 
 export function ShapeCanvas() {
 
-    let data;
-    let symmetry;
-    //let xoff = 0;
-    let maxIterations = 120;
-    //let maxThreshold = 1500; //set a limit 
-    
-    const preload = (p5) => {
-        data = p5.loadJSON('./assets/data/person.json');
-      }
+    const [data, setData] = useState(null);
+    const [symmetry, setSymmetry] = useState(null);
+    const maxIterations = 120;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('./assets/data/person.json');
+            const jsonData = await response.json();
+            setData(jsonData);
+            setSymmetry(Math.random() * 6 + 6); // Random symmetry between 6 and 12
+        };
+
+        fetchData();
+    }, []);
+
 
     const setup = (p5, parent) => {
         p5.createCanvas(p5.displayWidth, p5.displayHeight).parent(parent);
         p5.background(255); //set to white
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
-        symmetry = p5.random(6, 12);
+        //symmetry = p5.random(6, 12);
         p5.frameRate(4);
 
     }
 
     const draw = p5 => {
+
+        if (!data || !symmetry) return;
 
         p5.translate(p5.width/2, p5.height/2); // set x and y to middle
         let currentIteration = p5.min(p5.frameCount, maxIterations);
@@ -38,7 +46,7 @@ export function ShapeCanvas() {
                 for(let j= 0; j < data.person.length; j++) {
                     //access Withings App data from the data file
                 let wApp = Number(data.person[j].withingsApp); 
-                drawEllipse(p5, i*2, i*2, i, i);
+                drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
                     }   
                 }
     }  
@@ -96,6 +104,6 @@ export function ShapeCanvas() {
         
      }
      
-     return <Sketch preload={preload} setup={setup} draw={draw} />;
+     return <Sketch setup={setup} draw={draw} />;
 
     }
