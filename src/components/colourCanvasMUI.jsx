@@ -10,7 +10,7 @@ export function ColourCanvas() {
 
     const setup = (p5, parent) => {
         p5.createCanvas(p5.displayWidth, p5.displayHeight).parent(parent);
-        p5.background(0); //to be change to white later
+        p5.background(255); //set to white
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
         symmetry = p5.random(6, 12);
@@ -41,7 +41,7 @@ export function ColourCanvas() {
         
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
         p5.stroke(hu, 255, 255, 100);
-        p5.fill(c);
+        //p5.fill(c);
         //p5.noStroke();
         p5.filter(p5.GRAY);
         

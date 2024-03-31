@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import Sketch from "react-p5";
 
-export function ShapeCanvas() {
+export function CreationCanvas() {
 
     let data;
     let symmetry;
-    //let xoff = 0;
+    let xoff = 0;
     let maxIterations = 120;
     //let maxThreshold = 1500; //set a limit 
     
@@ -74,12 +74,11 @@ export function ShapeCanvas() {
         const drawEllipse = (p5, x,y, w, h) => {
             let angle = 360/symmetry;
             let sw = p5.random(0, 3);
-            
-            //let hu = noise(xoff) * 255;
-            //xoff += 0.01;
+            let hu = p5.noise(xoff) * 255;
+            xoff += 0.01;
             
             let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-            //p5.stroke(hu, 255, 255, 100);
+            p5.stroke(hu, 255, 255, 100);
             p5.fill(c);
             p5.noStroke();
             
