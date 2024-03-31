@@ -10,7 +10,7 @@ export function ShapeCanvas() {
     //let maxThreshold = 1500; //set a limit 
     
     const preload = (p5) => {
-        data = p5.loadJSON('person.json');
+        data = p5.loadJSON('./assets/data/person.json');
       }
 
     const setup = (p5, parent) => {

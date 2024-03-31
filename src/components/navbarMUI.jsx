@@ -35,10 +35,10 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static" >
+        <AppBar position="static" sx={{bgcolor:"white" }}>
             <Container maxWidth="x1">
                 <Toolbar disableGutters>
-                    <BalanceIcon sx={{ display: {xs:'none', md:'flex'}, mr: 1}} />
+                    <BalanceIcon sx={{ display: {xs:'none', md:'flex'}, mr: 1, color:'black'}} />
                     <Typography
                     variant='h6'
                     noWrap
@@ -50,7 +50,7 @@ function ResponsiveAppBar() {
                         fontFamily: 'sans-serif',
                         fontWeight: 700,
                         letterSpacing: '.3rem',
-                        color: 'inherit',
+                        color: 'black',
                         textDecoration: 'none',
                     }}
                     >
@@ -63,7 +63,7 @@ function ResponsiveAppBar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit" >
+                            color="black" >
                                 <MenuIcon />
                         </IconButton>
                         <Menu
@@ -103,7 +103,7 @@ function ResponsiveAppBar() {
                         fontFamily: 'sans-serif',
                         fontWeight: 700,
                         letterSpacing: '.3rem',
-                        color: 'inherit',
+                        color: 'black',
                         textDecoration: 'none',
                     }}
                     >
@@ -114,7 +114,7 @@ function ResponsiveAppBar() {
                         <Button
                         key={page}
                         onClick={() => handleMenuSelect(page)}
-                        sx={{ my: 2, color: 'white', display: 'block '}}
+                        sx={{ my: 2, color: 'black', display: 'block '}}
                         >
                             {page}
                         </Button>
