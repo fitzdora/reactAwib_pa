@@ -1,7 +1,7 @@
 import { ShapeCanvas } from "./shapeCanvasMUI";
 
 export default {
-    title: 'Shape Canvas',
+    title: 'ShapeCanvas',
     component: ShapeCanvas,
   };
 

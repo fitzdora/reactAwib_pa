@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAPI } from '../api/fetchAPI.jsx';
-import TestCanvasAPI from "./testCanvasMUIAPI.jsx";
+//import TestCanvasAPI from "./testCanvasMUIAPI.jsx";
+import ShapeCanvas from "./shapeCanvasMUI.jsx";
 
 
 
@@ -20,7 +21,7 @@ export default function Main() {
 
 return (
 <main>
-<TestCanvasAPI data={data} />
+<ShapeCanvas data={data} /> : <div>Loading...</div>
 </main>
 );
 }

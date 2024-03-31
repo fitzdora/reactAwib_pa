@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect} from 'react';
 import Sketch from "react-p5";
+import PropTypes from 'prop-types';
 
-export function ShapeCanvas() {
+const ShapeCanvas = ({data}) => {
 
-    const [data, setData] = useState(null);
-    const [symmetry, setSymmetry] = useState(null);
-    const maxIterations = 120;
+    let dataReceived = data;
+    console.log('Data Received Initially:', dataReceived);
+    let maxIterations = 120;
+    let symmetry;
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('./assets/data/person.json');
-            const jsonData = await response.json();
-            setData(jsonData);
-            setSymmetry(Math.random() * 6 + 6); // Random symmetry between 6 and 12
-        };
-
-        fetchData();
-    }, []);
+        if (data) {
+        gotData(data);
+        }
+    }, [data]);
 
 
     const setup = (p5, parent) => {
@@ -24,14 +21,28 @@ export function ShapeCanvas() {
         p5.background(255); //set to white
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
-        //symmetry = p5.random(6, 12);
+        symmetry = p5.random(6, 12);
         p5.frameRate(4);
 
     }
 
-    const draw = p5 => {
+    function gotData(p5, dataReceived) {
+        console.log('Data Received into GotData function:', dataReceived);
+        // Check if data is undefined or null
+        if (!dataReceived) {
+        console.error('Received undefined or null data in the gotData function');
+        return;
+        }
 
-        if (!data || !symmetry) return;
+          // Ensure that data has the expected structure
+          if (typeof dataReceived.number === 'undefined') {
+            console.error('Invalid data format:', dataReceived);
+            return;
+        }
+    }
+        
+
+    const draw = p5 => {
 
         p5.translate(p5.width/2, p5.height/2); // set x and y to middle
         let currentIteration = p5.min(p5.frameCount, maxIterations);
@@ -104,6 +115,12 @@ export function ShapeCanvas() {
         
      }
      
-     return <Sketch setup={setup} draw={draw} />;
+     return <Sketch setup={setup} draw={draw} />
 
-    }
+    };
+
+    ShapeCanvas.propTypes = {
+        data: PropTypes.object.isRequired, // Assuming the data is an object
+    };
+
+    export default ShapeCanvas;
