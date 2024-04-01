@@ -3,7 +3,7 @@ import Sketch from "react-p5";
 import PropTypes from 'prop-types';
 
 const ShapeCanvas = ({ data }) => {
-
+    //Grayscale
     let dataReceived = data;
     console.log('Data Received Initially:', dataReceived);
 
@@ -24,25 +24,9 @@ const ShapeCanvas = ({ data }) => {
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
         symmetry = p5.random(6, 12);
-        p5.frameRate(2);
+        p5.frameRate(4);
 
     }
-
-    function gotData(p5, dataReceived) {
-        console.log('Data Received into GotData function:', dataReceived);
-        // Check if data is undefined or null
-        if (!dataReceived) {
-        console.error('Received undefined or null data in the gotData function');
-        return;
-        }
-
-          // Ensure that data has the expected structure
-          if (typeof dataReceived.number === 'undefined') {
-            console.error('Invalid data format:', dataReceived);
-            return;
-        }
-    }
-        
 
     const draw = p5 => {
 
@@ -62,6 +46,11 @@ const ShapeCanvas = ({ data }) => {
                 drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
                     }   
                 }
+
+                if(p5.frameCount >= maxIterations) {
+                    p5.noLoop();
+                    //p5.background(255);
+                }
     }  
 
 
@@ -70,13 +59,8 @@ const ShapeCanvas = ({ data }) => {
     const drawRectangle = (p5, x, y, w, h) => {
         let angle = 360/symmetry;
         let sw = p5.random(0,3);
-        //let hu = p5.noise(xoff) * 255;
-        //xoff += 0.2;
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-        //p5.stroke(hu, 255, 255, 100);
-        p5.fill(c);
-        p5.noStroke();
-        //p5.filter(p5.GRAY);
+        p5.filter(p5.GRAY);
         
       for(let i = 0; i < symmetry; i++) {
         
@@ -95,14 +79,9 @@ const ShapeCanvas = ({ data }) => {
         const drawEllipse = (p5, x,y, w, h) => {
             let angle = 360/symmetry;
             let sw = p5.random(0, 3);
-            
-            //let hu = noise(xoff) * 255;
-            //xoff += 0.01;
-            
             let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-            //p5.stroke(hu, 255, 255, 100);
-            p5.fill(c);
-            p5.noStroke();
+            p5.filter(p5.GRAY);
+        
             
             for(let i = 0; i< symmetry; i++){
               p5.rotate(angle);

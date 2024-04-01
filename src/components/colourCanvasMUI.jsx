@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import Sketch from "react-p5";
 
 export function ColourCanvas() {
-
+    //No Stroke only colour
     let symmetry;
-    let xoff = 0;
     let maxIterations = 120;
   
 
@@ -24,26 +23,31 @@ export function ColourCanvas() {
         let currentIteration = p5.min(p5.frameCount, maxIterations);
         
         //Draw Rectangle
-            for(let i = 0; i < currentIteration; i++) {
+          /*   for(let i = 0; i < currentIteration; i++) {
             drawRectangle(p5, i*2, i*2, i, i);
+            } */
+        
+         //DrawTriangle
+               for (let i = 0; i < currentIteration; i++) {
+                drawTriangle(p5, i*2, 0, 0, i/2, i/2, i/2);
+                }
+
+            if(p5.frameCount >= maxIterations) {
+                p5.noLoop();
+                //p5.background(255);
             }
     
     }
 
-
+    //Draw Rectangle
+/* 
     const drawRectangle = (p5, x, y, w, h) => {
         let angle = 360/symmetry;
-        let sw = p5.random(0,3);
-        
-        let hu = p5.noise(xoff) * 255;
-        xoff += 0.2;
-       
-        
+        let sw = p5.random(0,3);        
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-        p5.stroke(hu, 255, 255, 100);
-        //p5.fill(c);
-        //p5.noStroke();
-        p5.filter(p5.GRAY);
+        p5.fill(c);
+        p5.noStroke();
+        
         
       for(let i = 0; i < symmetry; i++) {
         
@@ -57,7 +61,29 @@ export function ColourCanvas() {
         p5.pop();
         }  
         
-     }
+     } */
+
+      //Draw a Triangle
+        const drawTriangle = (p5, x1, y1, x2, y2, x3, y3) => {
+                let angle = 360/symmetry;
+                let sw = p5.random(0, 3);
+                //Set stroke and fill colors
+                let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
+                p5.fill(c);
+                p5.noStroke();
+                
+              for(let i = 0; i < symmetry; i++) {
+                //Draw main triangle
+                p5.rotate(angle); 
+                p5.strokeWeight(sw);
+                p5.triangle(x1, y1, x2, y2, x3, y3);
+                p5.push();
+                p5.scale(1, -1);
+                //Draw second triangle
+                p5.triangle(x1, y1, x2, y2, x3, y3);
+                p5.pop();
+                }  
+        }
      
       
 

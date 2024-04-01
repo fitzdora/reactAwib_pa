@@ -24,48 +24,46 @@ const CreationCanvas = ({ data }) => {
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
         symmetry = p5.random(6, 12);
-        p5.frameRate(2);
+        p5.frameRate(4);
 
     }
-
-    function gotData(p5, dataReceived) {
-        console.log('Data Received into GotData function:', dataReceived);
-        // Check if data is undefined or null
-        if (!dataReceived) {
-        console.error('Received undefined or null data in the gotData function');
-        return;
-        }
-
-          // Ensure that data has the expected structure
-          if (typeof dataReceived.number === 'undefined') {
-            console.error('Invalid data format:', dataReceived);
-            return;
-        }
-    }
-        
 
     const draw = p5 => {
 
         p5.translate(p5.width/2, p5.height/2); // set x and y to middle
         let currentIteration = p5.min(p5.frameCount, maxIterations);
         
-        //Draw Rectangle
-           for(let i = 0; i < currentIteration; i++) {
-            for(let j= 0; j < dataFromJson; j++) {
-                //access Withings App data from the data file
-                let wApp = Number(data.person[j].withingsApp); 
-                drawRectangle(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
-            }
-            } 
+            //Draw Rectangle
+                 for(let i = 0; i < currentIteration; i++) {
+                    for(let j= 0; j < dataFromJson; j++) {
+                        //access Withings App data from the data file
+                        let wApp = Number(data.person[j].withingsApp); 
+                        drawRectangle(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
+                    }
+                    } 
 
-        // Draw Ellipse/Circle
-           /*  for(let i = 0; i < currentIteration; i++) {
-                for(let j= 0; j < dataFromJson; j++) {
-                    //access Withings App data from the data file
-                let wApp = Number(data.person[j].withingsApp); 
-                drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
-                    }   
+            // Draw Ellipse/Circle
+                /*  for(let i = 0; i < currentIteration; i++) {
+                        for(let j= 0; j < dataFromJson; j++) {
+                            //access Withings App data from the data file
+                        let wApp = Number(data.person[j].withingsApp); 
+                        drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
+                            }   
+                        } */
+
+            //DrawTriangle
+               /*  for (let i = 0; i < currentIteration; i++) {
+                    for(let j= 0; j < dataFromJson; j++) {
+                    let wApp = Number(data.person[j].withingsApp); 
+                drawTriangle(p5.random(wApp), 0, 0, i/2, i/2, i/2);
+                }
                 } */
+
+       if(p5.frameCount >= maxIterations) {
+        p5.noLoop();
+        //p5.background(255);
+    }
+
     }  
 
 
@@ -76,50 +74,72 @@ const CreationCanvas = ({ data }) => {
         let sw = p5.random(0,3);
         let hu = p5.noise(xoff) * 255;
         xoff += 0.2;
+         //Set stroke and fill colors
         let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
         p5.stroke(hu, 255, 255, 100);
         p5.fill(c);
-        //p5.noStroke();
-        //p5.filter(p5.GRAY);
         
       for(let i = 0; i < symmetry; i++) {
-        
+        //Draw main Rectangle
         p5.rotate(angle);
         p5.strokeWeight(sw);
         p5.rect(x, y, w, h);
-       
         p5.push();
         p5.scale(1, -1);
+        //Draw second Rectangle
         p5.rect(x, y, w, h);
         p5.pop();
         }
     
 
-        //draw Ellipse
+        //Draw an Ellipse
    /*      const drawEllipse = (p5, x,y, w, h) => {
             let angle = 360/symmetry;
             let sw = p5.random(0, 3);
-            
             let hu = p5.noise(xoff) * 255;
             xoff += 0.01;
-            
+            //Set stroke and fill colors
             let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
             p5.stroke(hu, 255, 255, 100);
             p5.fill(c);
-            p5.noStroke();
             
             for(let i = 0; i< symmetry; i++){
+            //Draw main Ellipse
               p5.rotate(angle);
               p5.strokeWeight(sw);
               p5.ellipse(x, y, w, h);
-              
               p5.push();
               p5.scale(1, -1);
+              //Draw second Ellipse
               p5.ellipse(x, y, w, h);
               p5.pop();
             } */
         
+        
+            //Draw a Triangle
+           /*  const drawTriangle = (p5, x1, y1, x2, y2, x3, y3) => {
+                let angle = 360/symmetry;
+                //let sw = p5.random(0, 3);
+                let hu = p5.noise(xoff) * 255;
+                xoff += 0.02;
+                //Set stroke and fill colors
+                let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
+                p5.stroke(hu, 255, 255, 100);
+                p5.fill(c);
+                
+              for(let i = 0; i < symmetry; i++) {
+                //Draw main triangle
+                p5.rotate(angle); 
+                p5.strokeWeight(sw);
+                p5.triangle(x1, y1, x2, y2, x3, y3);
+                p5.push();
+                p5.scale(1, -1);
+                //Draw second triangle
+                p5.triangle(x1, y1, x2, y2, x3, y3);
+                p5.pop();
+                }   */
      }
+    
      
      return <Sketch setup={setup} draw={draw} />
 
