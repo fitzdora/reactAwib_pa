@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { fetchAPI } from '../api/fetchAPI.jsx';
-//import TestCanvasAPI from "./testCanvasMUIAPI.jsx";
-import ShapeCanvas from "./shapeCanvasMUI.jsx";
-
-
+import jsonData from '../assets/data/person.json';
+import CreationCanvas from './creationCanvasMUI.jsx';
 
 export default function Main() {
 
     const [data, setData] = useState(null);
-
-    useEffect(() => {
+    //const [isLoading, setIsLoading] = useState(true); 
+    
+   useEffect(() => {
         fetchAPI()
             .then((responseData) => {
-                setData(responseData);
+                // Parse the JSON data here before setting it in state
+                const parsedData = JSON.parse(responseData);
+                setData(parsedData);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
-            });
+            })
     }, []);
+ 
+
 
 return (
 <main>
-<ShapeCanvas data={data} /> : <div>Loading...</div>
+<CreationCanvas data={ jsonData } />
 </main>
 );
 }
+

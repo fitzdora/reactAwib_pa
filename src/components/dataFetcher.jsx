@@ -35,7 +35,7 @@ const DataFetcher = ({ onDataFetched }) => {
 };
 
 DataFetcher.propTypes = {
-    onDataFetched: PropTypes.object.isRequired, // Assuming the data is an object
+    onDataFetched: PropTypes.func.isRequired, // Assuming the data is an object
 };
 
 export default DataFetcher;

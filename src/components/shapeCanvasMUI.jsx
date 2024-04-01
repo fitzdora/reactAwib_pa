@@ -1,19 +1,21 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Sketch from "react-p5";
 import PropTypes from 'prop-types';
 
-const ShapeCanvas = ({data}) => {
+const ShapeCanvas = ({ data }) => {
 
     let dataReceived = data;
     console.log('Data Received Initially:', dataReceived);
+
+    if (!data) {
+        // Render alternative content when data is null
+        return <div>No data available</div>;
+    }
+
+    let dataFromJson = data.person.length;
+    
     let maxIterations = 120;
     let symmetry;
-
-    useEffect(() => {
-        if (data) {
-        gotData(data);
-        }
-    }, [data]);
 
 
     const setup = (p5, parent) => {
@@ -22,7 +24,7 @@ const ShapeCanvas = ({data}) => {
         p5.angleMode(p5.DEGREES); //for ease of use
         p5.colorMode(p5.HSB, 255, 255, 100);
         symmetry = p5.random(6, 12);
-        p5.frameRate(4);
+        p5.frameRate(2);
 
     }
 
@@ -54,7 +56,7 @@ const ShapeCanvas = ({data}) => {
 
         // Draw Ellipse/Circle
             for(let i = 0; i < currentIteration; i++) {
-                for(let j= 0; j < data.person.length; j++) {
+                for(let j= 0; j < dataFromJson; j++) {
                     //access Withings App data from the data file
                 let wApp = Number(data.person[j].withingsApp); 
                 drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
