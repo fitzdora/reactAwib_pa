@@ -1,8 +1,20 @@
 import React, { useEffect } from 'react';
 import Sketch from "react-p5";
+import PropTypes from 'prop-types';
 
-export function ColourCanvas() {
-    //No Stroke only colour
+const ColourCanvas = ({ data }) => {
+    //No Stroke only pure colour
+
+    let dataReceived = data;
+    console.log('Data Received Initially:', dataReceived);
+
+    if (!data) {
+        // Render alternative content when data is null
+        return <div>No data available</div>;
+    }
+
+    let dataFromJson = data.person.length;
+    
     let symmetry;
     let maxIterations = 120;
   
@@ -23,14 +35,22 @@ export function ColourCanvas() {
         let currentIteration = p5.min(p5.frameCount, maxIterations);
         
         //Draw Rectangle
-          /*   for(let i = 0; i < currentIteration; i++) {
-            drawRectangle(p5, i*2, i*2, i, i);
-            } */
-        
-         //DrawTriangle
-               for (let i = 0; i < currentIteration; i++) {
-                drawTriangle(p5, i*2, 0, 0, i/2, i/2, i/2);
-                }
+        for(let i = 0; i < currentIteration; i++) {
+          for(let j= 0; j < dataFromJson; j++) {
+              //access Withings App data from the data file
+              let wApp = Number(data.person[j].withingsApp); 
+              drawRectangle(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
+            }
+          } 
+
+          // Draw Ellipse/Circle
+          for(let i = 0; i < currentIteration; i++) {
+            for(let j= 0; j < dataFromJson; j++) {
+                //access Withings App data from the data file
+                let wApp = Number(data.person[j].withingsApp); 
+                drawEllipse(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
+                }   
+            }
 
             if(p5.frameCount >= maxIterations) {
                 p5.noLoop();
@@ -40,7 +60,7 @@ export function ColourCanvas() {
     }
 
     //Draw Rectangle
-/* 
+
     const drawRectangle = (p5, x, y, w, h) => {
         let angle = 360/symmetry;
         let sw = p5.random(0,3);        
@@ -59,36 +79,38 @@ export function ColourCanvas() {
         p5.scale(1, -1);
         p5.rect(x, y, w, h);
         p5.pop();
-        }  
+        } 
+      } 
+
+        //draw Ellipse
+        const drawEllipse = (p5, x,y, w, h) => {
+            let angle = 360/symmetry;
+            let sw = p5.random(0, 3);
+            let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
+            p5.fill(c);
+            p5.noStroke();
         
-     } */
+            
+            for(let i = 0; i< symmetry; i++){
+              p5.rotate(angle);
+              p5.strokeWeight(sw);
+              p5.ellipse(x, y, w, h);
+              
+              p5.push();
+              p5.scale(1, -1);
+              p5.ellipse(x, y, w, h);
+              p5.pop();
+            }
 
-      //Draw a Triangle
-        const drawTriangle = (p5, x1, y1, x2, y2, x3, y3) => {
-                let angle = 360/symmetry;
-                let sw = p5.random(0, 3);
-                //Set stroke and fill colors
-                let c = p5.color(p5.random(255), p5.random(255),p5.random(255));
-                p5.fill(c);
-                p5.noStroke();
-                
-              for(let i = 0; i < symmetry; i++) {
-                //Draw main triangle
-                p5.rotate(angle); 
-                p5.strokeWeight(sw);
-                p5.triangle(x1, y1, x2, y2, x3, y3);
-                p5.push();
-                p5.scale(1, -1);
-                //Draw second triangle
-                p5.triangle(x1, y1, x2, y2, x3, y3);
-                p5.pop();
-                }  
-        }
-     
-      
 
-   
-
+        
+        
+     } 
     return <Sketch setup={setup} draw={draw} />;
+};
 
-}
+ColourCanvas.propTypes = {
+  data: PropTypes.object.isRequired, // Assuming the data is an object
+};
+
+export default ColourCanvas;

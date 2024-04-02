@@ -3,7 +3,7 @@ import Sketch from "react-p5";
 import PropTypes from 'prop-types';
 
 const CreationCanvas = ({ data }) => {
-
+    //master canvas for to set weight switch for weight choice.
     let dataReceived = data;
     console.log('Data Received Initially:', dataReceived);
 

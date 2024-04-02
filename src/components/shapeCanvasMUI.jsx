@@ -3,7 +3,7 @@ import Sketch from "react-p5";
 import PropTypes from 'prop-types';
 
 const ShapeCanvas = ({ data }) => {
-    //Grayscale
+    //Grayscale only - no colour - emphasis on shape
     let dataReceived = data;
     console.log('Data Received Initially:', dataReceived);
 
@@ -33,10 +33,14 @@ const ShapeCanvas = ({ data }) => {
         p5.translate(p5.width/2, p5.height/2); // set x and y to middle
         let currentIteration = p5.min(p5.frameCount, maxIterations);
         
-        //Draw Rectangle
-           /*  for(let i = 0; i < currentIteration; i++) {
-            drawRectangle(p5, i*2, i*2, i, i);
-            } */
+       //Draw Rectangle
+       /* for(let i = 0; i < currentIteration; i++) {
+        for(let j= 0; j < dataFromJson; j++) {
+            //access Withings App data from the data file
+            let wApp = Number(data.person[j].withingsApp); 
+            drawRectangle(p5, p5.random(wApp), p5.random(wApp), p5.random(i), p5.random(i));
+        }
+        }  */
 
         // Draw Ellipse/Circle
             for(let i = 0; i < currentIteration; i++) {
