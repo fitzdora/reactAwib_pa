@@ -3,7 +3,7 @@
 ### Student Id: ###
 ## W20099887 ##
 ### Video URL: ###
-# [Video Presentation](https:) # 
+# [Video Presentation](https://youtu.be/ak9M6I6Wpu0) # 
 ### Commercial Title: ### 
 # All Weight is Beautiful #
 ### Academic Title: ###
