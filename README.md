@@ -28,5 +28,5 @@
 ### Project managment: ###
 ### Please visit [Trello](https://trello.com/invite/b/6aBvTRjd/ATTId0ebfddabef951228f6f0146e951686f2CB6CA20/final-year-project)  ###
 ### Final Report: [Final Report](https://docs.google.com/document/d/17BYBcekDqzUGtzgUJtbNWIrdaghCX1Mw/edit?usp=drive_link&ouid=104970793702424639093&rtpof=true&sd=true) ###
-### Presentation: [Presentation](https://drive.google.com/file/d/1mzVmkppDffCdBgmzWhfsQQHm799wdsGV/view?usp=drive_link)###
+### Presentation: [Presentation](https://drive.google.com/file/d/1mzVmkppDffCdBgmzWhfsQQHm799wdsGV/view?usp=drive_link) ###
 
